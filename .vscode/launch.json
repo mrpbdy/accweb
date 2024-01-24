@@ -20,6 +20,20 @@
             "cwd": "${workspaceFolder}/public"
         },
         {
+            "name": "Accweb Frontend",
+            "request": "launch",
+            "runtimeArgs": [
+                "run",
+                "dev"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "cwd": "${workspaceFolder}/public"
+        },
+        {
             "name": "Accweb Backend",
             "type": "go",
             "request": "launch",
