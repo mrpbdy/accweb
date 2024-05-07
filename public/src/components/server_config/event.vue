@@ -59,6 +59,7 @@ export default {
             postRaceSeconds: 0,
             simracerWeatherConditions: false,
             isFixedConditionQualification: false,
+            configVersion: 1,
             sessionIndex: 0,
             sessions: [],
             metaData: ""
@@ -66,6 +67,9 @@ export default {
     },
     methods: {
         setData(data) {
+            while(this.sessions.length > 0) {
+                this.sessions.splice(this.sessions[this.sessions.length - 1], 1);
+            }
             this.track = data.track;
             this.preRaceWaitingTimeSeconds = data.preRaceWaitingTimeSeconds;
             this.sessionOverTimeSeconds = data.sessionOverTimeSeconds;
@@ -109,7 +113,8 @@ export default {
                 simracerWeatherConditions: this.simracerWeatherConditions ? 1 : 0,
                 isFixedConditionQualification: this.isFixedConditionQualification ? 1 : 0,
                 sessions: this.getSessionData(),
-                metaData: this.metaData
+                metaData: this.metaData,
+                configVersion: 1
             };
       	},
         getSessionData() {

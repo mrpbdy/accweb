@@ -35,7 +35,7 @@ mv src/components/end.vue.orig src/components/end.vue
 
 # build backend (Windows and Linux)
 cd ..
-CGO_ENABLED=0 GOOS=linux go build -ldflags "-s -w" -o $DIR/accweb cmd/main.go
+# CGO_ENABLED=0 GOOS=linux go build -ldflags "-s -w" -o $DIR/accweb cmd/main.go
 CGO_ENABLED=0 GOOS=windows go build -ldflags "-s -w" -o $DIR/accweb.exe cmd/main.go
 
 # copy files
@@ -44,12 +44,12 @@ cp README.md "$DIR/README.md"
 cp build/sample_config.yml "$DIR/config.yml"
 
 # make scripts and accweb executable
-chmod +x "$DIR/accweb"
+# chmod +x "$DIR/accweb"
 chmod +x "$DIR/accweb.exe"
 
 cd "$RDIR"
-zip -r "$VDIR.zip" "$VDIR"
+zip a "$VDIR.zip" "$VDIR"
 cd ..
-rm -r $DIR
+# rm -r $DIR
 
 echo "done"

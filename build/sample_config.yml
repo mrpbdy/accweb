@@ -20,6 +20,9 @@ webserver:
   write_timeout: 5
   read_timeout: 5
 
+  # Configurable timeout - in minutes
+  webserver_timeout: 20
+  
 auth:
   # Set the session duration (Default value is 20 minutes).
   # duration documentation can be found at https://pkg.go.dev/time#ParseDuration
@@ -48,6 +51,7 @@ acc:
   # Name of the server executable within the server installation directory.
   # You don't need to change this (except the ACC devs change its name for some reason).
   server_exe: accServer.exe
+
 
 # TECHNICAL STUFF FROM HERE ON
 

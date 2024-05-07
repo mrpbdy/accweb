@@ -84,6 +84,9 @@ export default {
             link.remove();
         },
         deleteServer() {
+            if (!window.confirm(this.$t("confirm_delete"))) {
+                return;
+            }
             axios.delete(`/api/instance/${this.server.id}`)
             .then(() => {
                 this.$emit("deleted");
@@ -102,6 +105,9 @@ export default {
             });
         },
         stop() {
+            if (!window.confirm(this.$t("confirm_stop"))) {
+                return;
+            }
             axios.post(`/api/instance/${this.server.id}/stop`)
             .then(() => {
                 this.$emit("stopped");
@@ -141,7 +147,9 @@ export default {
         "offline": "Offline",
         "starting": "Starting",
         "not_registered": "Waiting for events",
-        "online": "Online"
+        "online": "Online",
+        "confirm_stop": "Do you really want to stop this server?",
+        "confirm_delete": "Do you really want to delete this server?"
     }
 }
 </i18n>
